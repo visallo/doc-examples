@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>org.visallo</groupId>
+        <artifactId>visallo-root</artifactId>
+        <version>3.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.visallo</groupId>
+    <artifactId>examples</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Example Visallo Plugins</name>
+
+    <properties>
+        <java.source.version>1.8</java.source.version>
+        <java.target.version>1.8</java.target.version>
+        <visallo.version>3.1-SNAPSHOT</visallo.version>
+        <examples.version>0.1-SNAPSHOT</examples.version>
+    </properties>
+
+    <modules>
+        <!-- Runner -->
+        <module>_run/runner</module>
+
+        <!-- Plugins, add to _run/runner/pom.xml as dependencies to include when running -->
+        <module>extension-authentication</module>
+        <module>extension-detail-toolbar</module>
+    </modules>
+
+    <repositories>
+        <repository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Sonatype Nexus Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>1.10.19</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.visallo</groupId>
+                <artifactId>visallo-core</artifactId>
+                <version>${visallo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.visallo</groupId>
+                <artifactId>visallo-web</artifactId>
+                <version>${visallo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.visallo</groupId>
+                <artifactId>visallo-dev-tomcat-server</artifactId>
+                <version>${visallo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <scope>runtime</scope>
+                <version>3.1.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
