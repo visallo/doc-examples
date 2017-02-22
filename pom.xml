@@ -27,6 +27,7 @@
         <!-- Plugins, add to _run/runner/pom.xml as dependencies to include when running -->
         <module>extension-authentication</module>
         <module>extension-detail-toolbar</module>
+        <module>extension-activity</module>
     </modules>
 
     <repositories>

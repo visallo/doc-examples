@@ -1,0 +1,19 @@
+.basic-auth input {
+    width: 100%;
+    height: 100%;
+    padding: 0.5em;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.basic-auth .text-error {
+    text-align: center;
+}
+
+.basic-auth button {
+    width: 100%;
+}
+
+.basic-auth button.loading {
+    margin-left: 0;
+}

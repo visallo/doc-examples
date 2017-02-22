@@ -1,0 +1,10 @@
+<div class="basic-auth">
+  <form action="" class="login">
+    <p class="text-error">{{#if errorMessage}}{{errorMessage}}{{/if}}</p>
+
+    <input class="username" type="text" placeholder="{{i18n 'org.visallo.examples.authentication.username'}}" autofocus />
+    <input class="password" type="password" placeholder="{{i18n 'org.visallo.examples.authentication.password'}}" />
+
+    <button class="btn btn-primary">{{i18n 'org.visallo.examples.authentication.login'}}</button>
+  </form>
+</div>
