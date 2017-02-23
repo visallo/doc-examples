@@ -92,7 +92,7 @@ define([
             }).fail(function(xhr, status, error) {
                 self.submitting = false;
                 if (xhr.status === 403) {
-                    error = i18n('org.visallo.examples.authorization.invalid');
+                    error = i18n('org.visallo.examples.authentication.invalid');
                 }
                 $error.text(error);
                 self.enableButton(true);
