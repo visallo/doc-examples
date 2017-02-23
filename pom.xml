@@ -29,6 +29,7 @@
         <module>extension-detail-toolbar</module>
         <module>extension-activity</module>
         <module>extension-admin</module>
+        <module>extension-ingest-cloud</module>
     </modules>
 
     <repositories>
