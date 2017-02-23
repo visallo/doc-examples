@@ -1,0 +1,5 @@
+body .element-list ul li a {
+    height: auto;
+    min-height: 3em;
+    padding: 0 1em;
+}
