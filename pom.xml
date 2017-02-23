@@ -34,6 +34,7 @@
         <module>extension-dashboard-layout</module>
         <module>extension-dashboard-reportrenderer</module>
         <module>extension-dashboard-toolbaritem</module>
+        <module>extension-detail-text</module>
     </modules>
 
     <repositories>
