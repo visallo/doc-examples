@@ -30,6 +30,7 @@
         <module>extension-activity</module>
         <module>extension-admin</module>
         <module>extension-ingest-cloud</module>
+        <module>extension-dashboard-item</module>
     </modules>
 
     <repositories>
