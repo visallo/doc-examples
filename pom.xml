@@ -38,6 +38,7 @@
         <module>extension-entity-listitemrenderer</module>
         <module>extension-graph-edge-class</module>
         <module>extension-graph-edge-transformer</module>
+        <module>extension-graph-export</module>
     </modules>
 
     <repositories>
