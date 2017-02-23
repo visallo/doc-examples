@@ -28,6 +28,7 @@
         <module>extension-authentication</module>
         <module>extension-detail-toolbar</module>
         <module>extension-activity</module>
+        <module>extension-admin</module>
     </modules>
 
     <repositories>
