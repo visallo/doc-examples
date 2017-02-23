@@ -8,8 +8,9 @@ define([
     function JSONStringRenderer() {
 
         //Transform data (better performance than doing in render)
-        //this.processData = function(data) {
-        //}
+        this.processData = function(data) {
+            return JSON.stringify(data, null, 2);
+        }
 
         this.render = function(d3, node, data) {
             d3.select(node)
@@ -18,7 +19,7 @@ define([
                     'font-family': 'menlo',
                     'font-size': '8pt'
                 })
-                .text(JSON.stringify(data, null, 2));
+                .text(data);
         }
     }
 })
