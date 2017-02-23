@@ -15,7 +15,6 @@ public class GraphEdgeTransformerWebAppPlugin implements WebAppPlugin {
     @Override
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
         app.registerJavaScript("/org/visallo/examples/graph_edge_transformer/plugin.js", true);
-        app.registerResourceBundle("/org/visallo/examples/graph_edge_transformer/messages.properties");
     }
 
 }
