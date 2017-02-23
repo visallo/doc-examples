@@ -74,6 +74,11 @@
             <artifactId>extension-dashboard-reportrenderer</artifactId>
             <version>${examples.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.visallo.examples</groupId>
+            <artifactId>extension-dashboard-toolbaritem</artifactId>
+            <version>${examples.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -33,6 +33,7 @@
         <module>extension-dashboard-item</module>
         <module>extension-dashboard-layout</module>
         <module>extension-dashboard-reportrenderer</module>
+        <module>extension-dashboard-toolbaritem</module>
     </modules>
 
     <repositories>
