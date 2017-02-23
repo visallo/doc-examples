@@ -37,6 +37,7 @@
         <module>extension-detail-text</module>
         <module>extension-entity-listitemrenderer</module>
         <module>extension-graph-edge-class</module>
+        <module>extension-graph-edge-transformer</module>
     </modules>
 
     <repositories>

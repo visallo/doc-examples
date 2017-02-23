@@ -2,7 +2,8 @@ require(['public/v1/api'], function(visallo) {
 
     visallo.registry.registerExtension('org.visallo.graph.edge.class', function(edges, type, classes) {
         var hasComment = _.any(edges, function(edge) {
-            return _.findWhere(edge.properties, { name: 'http://visallo.org/comment#entry' })
+            var comment = _.findWhere(edge.properties, { name: 'http://visallo.org/comment#entry' })
+            return comment && comment.value.indexOf('class') >= 0;
         });
 
         if (hasComment) {

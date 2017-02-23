@@ -94,6 +94,11 @@
             <artifactId>extension-graph-edge-class</artifactId>
             <version>${examples.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.visallo.examples</groupId>
+            <artifactId>extension-graph-edge-transformer</artifactId>
+            <version>${examples.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
