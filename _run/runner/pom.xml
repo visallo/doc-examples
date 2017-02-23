@@ -64,6 +64,11 @@
             <artifactId>extension-dashboard-item</artifactId>
             <version>${examples.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.visallo.examples</groupId>
+            <artifactId>extension-dashboard-layout</artifactId>
+            <version>${examples.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

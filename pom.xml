@@ -31,6 +31,7 @@
         <module>extension-admin</module>
         <module>extension-ingest-cloud</module>
         <module>extension-dashboard-item</module>
+        <module>extension-dashboard-layout</module>
     </modules>
 
     <repositories>
