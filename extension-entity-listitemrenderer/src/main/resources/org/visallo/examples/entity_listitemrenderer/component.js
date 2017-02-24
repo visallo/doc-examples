@@ -14,6 +14,10 @@ define([
             var item = this.attr.item;
             var usageContext = this.attr.usageContext;
 
+            if (usageContext === 'detail/relationships') {
+                item = item.vertex;
+            }
+
             api.connect().then(function(connected) {
                 $node.html(template({
                     item: item,
