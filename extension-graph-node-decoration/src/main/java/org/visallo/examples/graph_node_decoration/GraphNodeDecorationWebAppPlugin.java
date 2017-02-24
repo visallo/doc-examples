@@ -1,4 +1,4 @@
-package org.visallo.examples.graph_decoration;
+package org.visallo.examples.graph_node_decoration;
 
 import com.v5analytics.webster.Handler;
 import org.visallo.core.model.Description;
@@ -10,11 +10,13 @@ import javax.servlet.ServletContext;
 
 @Name("Graph Decoration")
 @Description("Add decoration text/images around graph nodes")
-public class GraphDecorationWebAppPlugin implements WebAppPlugin {
+public class GraphNodeDecorationWebAppPlugin implements WebAppPlugin {
 
     @Override
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
-        app.registerJavaScript("/org/visallo/examples/graph_decoration/plugin.js", true);
+        app.registerJavaScript("/org/visallo/examples/graph_node_decoration/plugin.js", true);
+        app.registerJavaScript("/org/visallo/examples/graph_node_decoration/popover.js", false);
+        app.registerJavaScriptTemplate("/org/visallo/examples/graph_node_decoration/template.hbs");
     }
 
 }
