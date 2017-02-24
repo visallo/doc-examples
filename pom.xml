@@ -45,6 +45,7 @@
         <module>extension-graph-node-decoration</module>
         <module>extension-graph-options</module>
         <module>extension-graph-selection</module>
+        <module>extension-graph-view</module>
     </modules>
 
     <repositories>
