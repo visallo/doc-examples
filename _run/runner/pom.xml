@@ -129,6 +129,11 @@
             <artifactId>extension-graph-options</artifactId>
             <version>${examples.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.visallo.examples</groupId>
+            <artifactId>extension-graph-selection</artifactId>
+            <version>${examples.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
