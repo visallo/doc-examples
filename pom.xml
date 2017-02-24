@@ -43,6 +43,7 @@
         <module>extension-graph-node-class</module>
         <module>extension-graph-node-transformer</module>
         <module>extension-graph-node-decoration</module>
+        <module>extension-graph-options</module>
     </modules>
 
     <repositories>
