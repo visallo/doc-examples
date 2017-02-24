@@ -10,7 +10,7 @@ define(['public/v1/api', 'react'], function(api, React) {
                 <label>My Setting
                     <input
                         onChange={this.onChange}
-                        type="checkbox"o
+                        type="checkbox"
                         defaultChecked={myOptionDefault} />
                 </label>
             );
