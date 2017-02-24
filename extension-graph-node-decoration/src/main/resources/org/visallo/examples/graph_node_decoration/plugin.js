@@ -19,6 +19,12 @@ require(['public/v1/api', 'util/retina'], function(visallo, retina) {
                     return {
                         label: (row * 3 + col) + 1
                     }
+                },
+                onMouseOver: function() {
+                    console.log('over')
+                },
+                onMouseOut: function() {
+                    console.log('out')
                 }
             });
         })
