@@ -19,7 +19,7 @@ define(['public/v1/api', 'react'], function(api, React) {
             const { checked } = event.target;
             visalloData.currentUser.uiPreferences[PREF_NAME] = checked;
             api.connect()
-                .then(c => c.dataRequest('user', 'preference', PREF_NAME, checked));
+                .then(c => c.dataRequest('user', 'preference', PREF_NAME, checked))
                 .then(() => console.log('saved'))
         }
     })
