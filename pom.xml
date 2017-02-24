@@ -40,6 +40,7 @@
         <module>extension-graph-edge-transformer</module>
         <module>extension-graph-export</module>
         <module>extension-graph-layout</module>
+        <module>extension-graph-node-class</module>
     </modules>
 
     <repositories>
