@@ -1,14 +1,16 @@
-define(['react'], function(React) {
-
+define(['public/v1/api', 'react'], function(visalloApi, React) {
+    const key = 'examples-geojson';
     const CountryBorders = React.createClass({
         getInitialState() {
-            return { visible: true }
+            const visible = visalloData.currentUser.uiPreferences[key] === 'true'
+            return { visible }
         },
         componentDidMount() {
             this.createCountryLayer();
         },
         render() {
             const { visible } = this.state;
+
             return (
                 <label>
                     Toggle Country Borders
@@ -18,17 +20,22 @@ define(['react'], function(React) {
         },
         onChange() {
             const { visible } = this.state;
+            const newVal = !visible;
 
-            if (this.layer) {
-                if (visible) {
-                    this.props.map.removeLayer(this.layer);
-                } else {
-                    this.props.map.addLayer(this.layer);
-                }
-                this.setState({ visible: !visible })
+            if (visible) {
+                this.props.map.removeLayer(this.layer);
+            } else {
+                this.props.map.addLayer(this.layer);
             }
+
+            visalloData.currentUser.uiPreferences[key] = String(newVal);
+            visalloApi.connect()
+                .then(c => c.dataRequest('user', 'preference', key, newVal));
+
+            this.setState({ visible: newVal })
         },
         createCountryLayer() {
+            if (this.layer) return;
             var { ol, map, cluster } = this.props;
             var styleArray = [new ol.style.Style({
               stroke: new ol.style.Stroke({
@@ -47,7 +54,9 @@ define(['react'], function(React) {
                 }
               });
 
-            map.addLayer(vector);
+            if (this.state.visible) {
+                map.addLayer(vector);
+            }
             this.layer = vector;
         }
     });
