@@ -154,6 +154,11 @@
             <artifactId>extension-map-options</artifactId>
             <version>${examples.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.visallo.examples</groupId>
+            <artifactId>extension-menubar</artifactId>
+            <version>${examples.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

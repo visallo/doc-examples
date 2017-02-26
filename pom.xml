@@ -49,6 +49,7 @@
         <module>extension-layout-component</module>
         <module>extension-logout</module>
         <module>extension-map-options</module>
+        <module>extension-menubar</module>
     </modules>
 
     <repositories>
