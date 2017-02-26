@@ -6,7 +6,7 @@ define([
     const GraphViewExample = React.createClass({
         render() {
             return (
-                <div className="org-visallo-examples-graph-view">
+                <div>
                     Custom palette
                     <div className="btn-toolbar">
                         <div className="btn-group">
