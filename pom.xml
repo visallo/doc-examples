@@ -47,6 +47,7 @@
         <module>extension-graph-selection</module>
         <module>extension-graph-view</module>
         <module>extension-layout-component</module>
+        <module>extension-logout</module>
     </modules>
 
     <repositories>
