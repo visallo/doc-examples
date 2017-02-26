@@ -48,6 +48,7 @@
         <module>extension-graph-view</module>
         <module>extension-layout-component</module>
         <module>extension-logout</module>
+        <module>extension-map-options</module>
     </modules>
 
     <repositories>
