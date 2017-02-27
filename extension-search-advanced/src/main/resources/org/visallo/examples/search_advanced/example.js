@@ -26,8 +26,10 @@ define([
                 textareaSelector: this.onChange
             })
             this.on('savedQuerySelected', this.onSavedQuerySelected);
-            this.resultsContainer = $(this.attr.resultsSelector);
             this.on(this.resultsContainer, 'infiniteScrollRequest', this.onInfiniteScrollRequest);
+
+            this.resultsContainer = $(this.attr.resultsSelector);
+
             this.$node.html(template({}));
         });
 
@@ -72,8 +74,10 @@ define([
                 query = this.select('textareaSelector').val();
 
             this.query = query;
+
             api.connect().then(function(connected) {
                 self.dataRequest = connected.dataRequest;
+
                 return Promise.all([
                     connected.components.List,
                     connected.dataRequest('org-visallo-examples-search', 'search', query, 0, SIZE)
