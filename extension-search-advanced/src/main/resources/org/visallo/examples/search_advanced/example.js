@@ -22,10 +22,18 @@ define([
             this.on('click', {
                 searchSelector: this.onSearch
             })
+            this.on('change keyup', {
+                textareaSelector: this.onChange
+            })
+            this.on('savedQuerySelected', this.onSavedQuerySelected);
             this.resultsContainer = $(this.attr.resultsSelector);
             this.on(this.resultsContainer, 'infiniteScrollRequest', this.onInfiniteScrollRequest);
             this.$node.html(template({}));
         });
+
+        this.onSavedQuerySelected = function(event, data) {
+            this.select('textareaSelector').val(data.query.parameters.q);
+        };
 
         this.onInfiniteScrollRequest = function(event, data) {
             var self = this;
@@ -44,6 +52,15 @@ define([
                     );
                 })
         };
+
+        this.onChange = function(event) {
+            this.trigger('setCurrentSearchForSaving', {
+                url: '/org/visallo/examples/search_advanced/search',
+                parameters: {
+                    q: $(event.target).val()
+                }
+            })
+        }
 
         this.onSearch = function(event) {
             var self = this,
