@@ -33,6 +33,7 @@ define([
 
         this.onSavedQuerySelected = function(event, data) {
             this.select('textareaSelector').val(data.query.parameters.q);
+            this.runSearch();
         };
 
         this.onInfiniteScrollRequest = function(event, data) {
@@ -63,6 +64,10 @@ define([
         }
 
         this.onSearch = function(event) {
+            this.runSearch();
+        };
+
+        this.runSearch = function() {
             var self = this,
                 query = this.select('textareaSelector').val();
 
