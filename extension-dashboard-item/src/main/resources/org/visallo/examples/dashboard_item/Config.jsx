@@ -12,13 +12,14 @@ define([
             )
         },
         onClick() {
-            var { item, extension } = this.props,
-                previous = item.configuration,
-                configuration = { ...previous, count: (previous.count || 0) + 1 };
+            const { item, extension } = this.props;
+            const { configuration:previous } = item;
+            const configuration = { ...previous, count: (previous.count || 0) + 1 };
 
-            console.log(previous.count, configuration.count)
-            item = { ...item, configuration }
-            this.props.configurationChanged({ item, extension })
+            this.props.configurationChanged({
+                item: { ...item, configuration },
+                extension
+            })
         }
     });
 
