@@ -1,6 +1,6 @@
 require(['public/v1/api', 'util/retina'], function(visallo, retina) {
 
-    MyLayout.identifier = 'org-visallo-examples-graph-layout';
+    MyLayout.identifier = 'example-random';
     function MyLayout(options) {
         this.options = options;
     }
@@ -8,9 +8,15 @@ require(['public/v1/api', 'util/retina'], function(visallo, retina) {
     MyLayout.prototype.run = function() {
         var cy = this.options.cy;
 
+        // Use `eles` option allows layout
+        // to work if running on all or selection
+        // of nodes
+        var nodes = this.options.eles || cy.nodes();
+
         var width = $(window).width();
         var height = $(window).height();
-        cy.nodes().each(function(i, node) {
+
+        nodes.filter('.v').each(function(i, node) {
             node.renderedPosition(retina.pointsToPixels({
                 x: Math.round(Math.random() * width),
                 y: Math.round(Math.random() * height)
