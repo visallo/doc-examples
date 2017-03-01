@@ -43,7 +43,12 @@ require(['public/v1/api', 'util/retina'], function(visallo, retina) {
         classes: 'custom',
         data: function(vertex) {
             return {
-                label: vertex.properties.length
+                label: vertex.properties.reduce(function(sum, p) {
+                    if (p.name === 'http://visallo.org/comment#entry') {
+                        return sum + 1;
+                    }
+                    return sum;
+                }, 0)
             }
         }
     });
