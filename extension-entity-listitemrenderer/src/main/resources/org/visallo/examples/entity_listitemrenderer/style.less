@@ -1,0 +1,35 @@
+.element-list ul li a.example-renderer {
+    height: auto;
+    min-height: 3em;
+    padding: 0.5em 1em;
+    display: flex;
+    align-items: center;
+
+    .img {
+        @size: 40px;
+        flex: 0 0 auto;
+        width: @size;
+        height: @size;
+        border-radius: @size / 2;
+        background-position: center;
+        background-size: contain;
+        margin-left: 0.5em;
+        border: 1px solid #e2e2e2;
+
+        &.icon {
+            border-radius: 0;
+            border-width: 0;
+            background-size: 50% auto;
+            background-repeat: no-repeat;
+        }
+    }
+    .title {
+        flex: 1 1 auto;
+    }
+}
+
+.element-list ul li.active a.example-renderer {
+    .img {
+        border-color: #096d9e;
+    }
+}

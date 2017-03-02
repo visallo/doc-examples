@@ -18,7 +18,7 @@ public class EntityListItemRendererWebAppPlugin implements WebAppPlugin {
         app.registerJavaScript("/org/visallo/examples/entity_listitemrenderer/component.js", false);
         app.registerJavaScriptTemplate("/org/visallo/examples/entity_listitemrenderer/template.hbs");
         app.registerResourceBundle("/org/visallo/examples/entity_listitemrenderer/messages.properties");
-        app.registerCss("/org/visallo/examples/entity_listitemrenderer/style.css");
+        app.registerLess("/org/visallo/examples/entity_listitemrenderer/style.less");
     }
 
 }
