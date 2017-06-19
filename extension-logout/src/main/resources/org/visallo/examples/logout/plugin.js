@@ -6,6 +6,7 @@ require(['public/v1/api'], function(visallo) {
         _.delay(function() {
             visallo.connect()
                 .then(function(connected) {
+                    $(document).trigger('willLogout');
                     return connected.dataRequest('user', 'logout');
                 })
                 .then(function() {
