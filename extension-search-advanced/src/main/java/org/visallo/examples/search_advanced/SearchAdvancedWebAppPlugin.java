@@ -23,7 +23,7 @@ public class SearchAdvancedWebAppPlugin implements WebAppPlugin {
         Class<? extends Handler> csrfProtector = VisalloCsrfHandler.class;
 
         app.registerJavaScript("/org/visallo/examples/search_advanced/plugin.js", true);
-        app.registerJavaScript("/org/visallo/examples/search_advanced/example.js", false);
+        app.registerJavaScriptComponent("/org/visallo/examples/search_advanced/Example.jsx");
         app.registerJavaScriptTemplate("/org/visallo/examples/search_advanced/template.hbs");
         app.registerLess("/org/visallo/examples/search_advanced/style.less");
         app.registerWebWorkerJavaScript("/org/visallo/examples/search_advanced/worker.js");
