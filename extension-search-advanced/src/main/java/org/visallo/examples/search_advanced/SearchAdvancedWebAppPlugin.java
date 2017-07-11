@@ -23,14 +23,18 @@ public class SearchAdvancedWebAppPlugin implements WebAppPlugin {
         Class<? extends Handler> csrfProtector = VisalloCsrfHandler.class;
 
         app.registerJavaScript("/org/visallo/examples/search_advanced/plugin.js", true);
-        app.registerJavaScriptComponent("/org/visallo/examples/search_advanced/Example.jsx");
+        app.registerJavaScriptComponent("/org/visallo/examples/search_advanced/React.jsx");
+        app.registerJavaScript("/org/visallo/examples/search_advanced/flight.js", false);
         app.registerJavaScriptTemplate("/org/visallo/examples/search_advanced/template.hbs");
         app.registerLess("/org/visallo/examples/search_advanced/style.less");
         app.registerWebWorkerJavaScript("/org/visallo/examples/search_advanced/worker.js");
         app.registerResourceBundle("/org/visallo/examples/search_advanced/messages.properties");
 
-        app.get("/org/visallo/examples/search_advanced/search", authenticator, csrfProtector, ReadPrivilegeFilter.class, ElementSearch.class);
-        app.post("/org/visallo/examples/search_advanced/search", authenticator, csrfProtector, ReadPrivilegeFilter.class, ElementSearch.class);
+        //searches are saved by url
+        app.get("/org/visallo/examples/search_advanced/flight/search", authenticator, csrfProtector, ReadPrivilegeFilter.class, ElementSearch.class);
+        app.post("/org/visallo/examples/search_advanced/flight/search", authenticator, csrfProtector, ReadPrivilegeFilter.class, ElementSearch.class);
+        app.get("/org/visallo/examples/search_advanced/react/search", authenticator, csrfProtector, ReadPrivilegeFilter.class, ElementSearch.class);
+        app.post("/org/visallo/examples/search_advanced/react/search", authenticator, csrfProtector, ReadPrivilegeFilter.class, ElementSearch.class);
     }
 
 }

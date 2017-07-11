@@ -44,7 +44,7 @@ define([
             this.setState({ query: event.target.value });
 
             this.props.setCurrentSearchForSaving({
-                url: '/org/visallo/examples/search_advanced/search',
+                url: '/org/visallo/examples/search_advanced/react/search',
                 parameters: {
                     q: event.target.value
                 }
@@ -79,7 +79,10 @@ define([
                     ]);
                 })
                 .spread((List, result) => {
-                    this.props.updateQueryStatus({ success: true, message: result.totalHits + ' results' });
+                    this.props.updateQueryStatus({
+                        success: true,
+                        message: i18n('org.visallo.examples.search.advanced.hits', result.totalHits)
+                    });
 
                     this.props.renderResults(resultsNode => {
                         const content = $(resultsNode).css('display', result.totalHits ? 'block' : 'none')
