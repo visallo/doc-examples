@@ -14,8 +14,7 @@ define([
 
         this.attributes({
             textareaSelector: 'textarea',
-            searchSelector: '.btn',
-            resultsSelector: null
+            searchSelector: '.btn'
         })
 
         this.after('initialize', function() {
@@ -26,11 +25,9 @@ define([
                 textareaSelector: this.onChange
             })
             this.on('savedQuerySelected', this.onSavedQuerySelected);
-            this.on(this.resultsContainer, 'infiniteScrollRequest', this.onInfiniteScrollRequest);
 
-            this.resultsContainer = $(this.attr.resultsSelector);
-
-            this.$node.html(template({}));
+            const query = this.attr.initialParameters && this.attr.initialParameters.q || '';
+            this.$node.html(template({ query: query }));
         });
 
         this.onSavedQuerySelected = function(event, data) {
@@ -58,7 +55,7 @@ define([
 
         this.onChange = function(event) {
             this.trigger('setCurrentSearchForSaving', {
-                url: '/org/visallo/examples/search_advanced/search',
+                url: '/org/visallo/examples/search_advanced/flight/search',
                 parameters: {
                     q: $(event.target).val()
                 }
@@ -83,19 +80,31 @@ define([
                     connected.dataRequest('org-visallo-examples-search', 'search', query, 0, SIZE)
                 ])
             }).spread(function(List, result) {
-                var content = self.resultsContainer.css('display', 'block')
-                    .find('.content')
-                    .teardownAllComponents()
-                    .empty()
+                self.trigger('updateQueryStatus', {
+                    success: true,
+                    message: i18n('org.visallo.examples.search.advanced.hits', result.totalHits)
+                });
 
-                List.attachTo(content, {
-                    items: result.elements,
-                    usageContext: 'searchresults',
-                    nextOffset: result.nextOffset,
-                    infiniteScrolling: true,
-                    total: result.totalHits
-                })
+                self.trigger('renderResults', resultsNode => {
+                    var resultsContainer = $(resultsNode).css('display', 'block')
+                        .find('.content')
+                        .teardownAllComponents()
+                        .empty()
+
+                    List.attachTo(resultsContainer, {
+                        items: result.elements,
+                        usageContext: 'searchresults',
+                        nextOffset: result.nextOffset,
+                        infiniteScrolling: true,
+                        total: result.totalHits
+                    })
+
+                    resultsContainer.off('infiniteScrollRequest').on('infiniteScrollRequest', self.onInfiniteScrollRequest);
+                });
             })
+            .catch((e) => {
+                self.trigger('updateQueryStatus', { success: false, error: e });
+            });
         };
 
     }
