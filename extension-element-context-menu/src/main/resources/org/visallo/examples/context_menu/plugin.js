@@ -6,7 +6,6 @@ require(['public/v1/api'], function(visallo) {
             event: 'context-menu-search-google',
             selection: 1,
             shouldDisable: (selection, vertexId, DOMelement, vertex) => {
-                debugger;
                 return api.formatters.vertex.title(vertex) === i18n('vertex.property.title.not_available');
             },
             options: {
