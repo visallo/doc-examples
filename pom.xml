@@ -51,6 +51,7 @@
         <module>extension-map-options</module>
         <module>extension-menubar</module>
         <module>extension-search-advanced</module>
+        <module>extension-element-context-menu</module>
     </modules>
 
     <repositories>
