@@ -52,6 +52,7 @@
         <module>extension-menubar</module>
         <module>extension-search-advanced</module>
         <module>extension-element-context-menu</module>
+        <module>extension-visibility</module>
     </modules>
 
     <repositories>
