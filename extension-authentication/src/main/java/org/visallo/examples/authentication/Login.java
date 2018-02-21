@@ -1,9 +1,9 @@
 package org.visallo.examples.authentication;
 
 import com.google.inject.Inject;
-import com.v5analytics.webster.ParameterizedHandler;
-import com.v5analytics.webster.annotations.Handle;
-import com.v5analytics.webster.annotations.Required;
+import org.visallo.webster.ParameterizedHandler;
+import org.visallo.webster.annotations.Handle;
+import org.visallo.webster.annotations.Required;
 import org.json.JSONObject;
 import org.visallo.core.exception.VisalloAccessDeniedException;
 import org.visallo.core.model.user.UserNameAuthorizationContext;
@@ -35,7 +35,7 @@ public class Login implements ParameterizedHandler {
         if (isValid(username, password)) {
             User user = findOrCreateUser(username);
             userRepository.updateUser(user, new UserNameAuthorizationContext(username, RemoteAddressUtil.getClientIpAddr(request)));
-            CurrentUser.set(request, user.getUserId(), user.getUsername());
+            CurrentUser.set(request, user);
             JSONObject json = new JSONObject();
             json.put("status", "OK");
             return json;

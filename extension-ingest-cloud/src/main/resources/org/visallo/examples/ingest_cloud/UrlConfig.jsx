@@ -1,9 +1,9 @@
 define([
-    'react'
-], function(React) {
+    'create-react-class'
+], function(createReactClass) {
     'use strict';
 
-    const UrlConfig = React.createClass({
+    const UrlConfig = createReactClass({
 
         getInitialState() {
             return { url: '' };

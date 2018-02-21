@@ -1,5 +1,5 @@
-define(['react'], function(React) {
-    const Finished = React.createClass({
+define(['create-react-class'], function(createReactClass) {
+    const Finished = createReactClass({
         onClick() {
             alert(JSON.stringify(this.props.process, null, 2));
         },

@@ -1,14 +1,14 @@
 define([
     'public/v1/api',
-    'react'
+    'create-react-class'
 ], function(
     visalloApi,
-    React) {
+    createReactClass) {
     'use strict';
 
     const SIZE = 20;
 
-    const SearchExample = React.createClass({
+    const SearchExample = createReactClass({
 
         getInitialState() {
             const { initialParameters } = this.props;

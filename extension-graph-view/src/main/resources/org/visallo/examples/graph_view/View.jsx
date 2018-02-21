@@ -1,9 +1,9 @@
 define([
-    'react'
-], function(React) {
+    'create-react-class'
+], function(createReactClass) {
     'use strict';
 
-    const GraphViewExample = React.createClass({
+    const GraphViewExample = createReactClass({
         render() {
             return (
                 <div>

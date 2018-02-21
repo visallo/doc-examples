@@ -1,6 +1,6 @@
-define(['public/v1/api', 'react'], function(visalloApi, React) {
+define(['public/v1/api', 'create-react-class'], function(visalloApi, createReactClass) {
     const key = 'examples-geojson';
-    const CountryBorders = React.createClass({
+    const CountryBorders = createReactClass({
         getInitialState() {
             const visible = visalloData.currentUser.uiPreferences[key] === 'true'
             return { visible }
