@@ -1,9 +1,9 @@
 define([
-    'react'
-], function(React) {
+    'create-react-class'
+], function(createReactClass) {
     'use strict';
 
-    const ReactConfigExample = React.createClass({
+    const ReactConfigExample = createReactClass({
         render() {
             return (
                 <button style={{display: 'block'}}

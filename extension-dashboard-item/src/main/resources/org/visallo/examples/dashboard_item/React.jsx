@@ -1,9 +1,9 @@
 define([
-    'react'
-], function(React) {
+    'create-react-class'
+], function(createReactClass) {
     'use strict';
 
-    const ReactDashboardItem = React.createClass({
+    const ReactDashboardItem = createReactClass({
         componentDidMount() {
             const { item, extension } = this.props;
             $(this.refs.wrap.parentNode).on('refreshData', (event) => {

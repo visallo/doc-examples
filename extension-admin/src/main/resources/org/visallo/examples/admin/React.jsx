@@ -1,12 +1,7 @@
-define([
-    'react'
-], function(React) {
+define(['create-react-class'], function(createReactClass) {
     'use strict';
 
-    const PropTypes = React.PropTypes;
-    const ReactAdminExample = React.createClass({
-        propTypes: {
-        },
+    const ReactAdminExample = createReactClass({
         render() {
             return (
                 <div>Hello from React</div>

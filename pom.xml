@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.visallo</groupId>
         <artifactId>visallo-root</artifactId>
-        <version>3.2-SNAPSHOT</version>
+        <version>4.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.visallo</groupId>
@@ -16,7 +16,7 @@
     <properties>
         <java.source.version>1.8</java.source.version>
         <java.target.version>1.8</java.target.version>
-        <visallo.version>3.2-SNAPSHOT</visallo.version>
+        <visallo.version>4.1-SNAPSHOT</visallo.version>
         <examples.version>0.1-SNAPSHOT</examples.version>
     </properties>
 
@@ -52,6 +52,7 @@
         <module>extension-menubar</module>
         <module>extension-search-advanced</module>
         <module>extension-element-context-menu</module>
+        <module>extension-visibility</module>
     </modules>
 
     <repositories>

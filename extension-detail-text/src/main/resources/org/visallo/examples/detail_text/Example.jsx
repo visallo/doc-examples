@@ -1,9 +1,9 @@
 define([
-    'react'
-], function(React) {
+    'create-react-class'
+], function(createReactClass) {
     'use strict';
 
-    const ExampleText = React.createClass({
+    const ExampleText = createReactClass({
         render() {
             const { vertex, propertyName, propertyKey } = this.props;
             return (

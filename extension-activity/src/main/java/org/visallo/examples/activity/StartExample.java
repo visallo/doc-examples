@@ -1,9 +1,9 @@
 package org.visallo.examples.activity;
 
 import com.google.inject.Inject;
-import com.v5analytics.webster.ParameterizedHandler;
-import com.v5analytics.webster.annotations.Handle;
-import com.v5analytics.webster.annotations.Required;
+import org.visallo.webster.ParameterizedHandler;
+import org.visallo.webster.annotations.Handle;
+import org.visallo.webster.annotations.Required;
 import org.vertexium.Authorizations;
 import org.visallo.core.model.longRunningProcess.LongRunningProcessRepository;
 import org.visallo.core.user.User;

@@ -1,8 +1,8 @@
-define(['public/v1/api', 'react'], function(api, React) {
+define(['public/v1/api', 'create-react-class'], function(api, createReactClass) {
 
     const PREF_NAME = 'my-option-value'
 
-    const MyOption = React.createClass({
+    const MyOption = createReactClass({
         render() {
             const { cy } = this.props;
             const myOptionDefault = visalloData.currentUser.uiPreferences[PREF_NAME];

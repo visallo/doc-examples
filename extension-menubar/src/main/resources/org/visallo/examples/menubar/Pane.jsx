@@ -1,9 +1,9 @@
 define([
-    'react'
-], function(React) {
+    'create-react-class'
+], function(createReactClass) {
     'use strict';
 
-    const MenubarExamplePane = React.createClass({
+    const MenubarExamplePane = createReactClass({
         render() {
             return (
                 <div style={{padding: '1em'}}>
@@ -11,7 +11,7 @@ define([
                     
                     <button 
                         style={{display: 'block', width: '100%'}}
-                        class="btn">Example</button>
+                        className="btn">Example</button>
                 </div>
             )
         }

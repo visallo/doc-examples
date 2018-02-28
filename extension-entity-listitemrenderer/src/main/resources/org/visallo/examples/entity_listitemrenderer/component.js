@@ -1,6 +1,6 @@
 define([
     'public/v1/api',
-    'hbs!./template'
+    './template.hbs'
 ], function(
     api,
     template) {

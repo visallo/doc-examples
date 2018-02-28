@@ -169,6 +169,11 @@
             <artifactId>extension-element-context-menu</artifactId>
             <version>${examples.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.visallo.examples</groupId>
+            <artifactId>extension-visibility</artifactId>
+            <version>${examples.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -189,7 +194,6 @@
                                     <type>war</type>
                                 </artifactItem>
                             </artifactItems>
-                            <useBaseVersion>true</useBaseVersion>
                             <overWriteSnapshots>true</overWriteSnapshots>
                             <excludes>WEB-INF/lib/**,WEB-INF/classes/**</excludes>
                         </configuration>
@@ -254,7 +258,7 @@
                             <goal>replace</goal>
                         </goals>
                         <configuration>
-                            <file>${visallo.dir}/config/log4j.xml</file>
+                            <file>${visallo.dir}/config/log4j2.xml</file>
                             <replacements>
                                 <replacement>
                                     <token>value="DEBUG"</token>
