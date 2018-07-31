@@ -1,6 +1,7 @@
 package org.visallo.examples.activity;
 
 import com.google.inject.Inject;
+import org.visallo.core.model.workQueue.Priority;
 import org.visallo.webster.ParameterizedHandler;
 import org.visallo.webster.annotations.Handle;
 import org.visallo.webster.annotations.Required;
@@ -20,11 +21,10 @@ public class StartExample implements ParameterizedHandler {
     @Handle
     public ClientApiLongRunningProcessSubmitResponse start(
             User user,
-            Authorizations authorizations,
             @Required(name = "propertyA") String propertyA
     ) {
         ExampleQueueItem exampleQueueItem = new ExampleQueueItem(propertyA);
-        String id = this.longRunningProcessRepository.enqueue(exampleQueueItem.toJson(), user, authorizations);
+        String id = this.longRunningProcessRepository.enqueue(exampleQueueItem.toJson(), Priority.NORMAL, user);
 
         return new ClientApiLongRunningProcessSubmitResponse(id);
     }

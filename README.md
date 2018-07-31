@@ -4,6 +4,7 @@ This repository includes the example code that is extracted as snippets to Visal
 
 To run Visallo with all plugins:
 
+    cp [VALID_VISALLO_LICENSE] _run/config/LICENSE
     ./run.sh
 
 After startup the application is available at [https://localhost:8443](https://localhost:8443)

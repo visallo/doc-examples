@@ -22,8 +22,23 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.visallo</groupId>
+            <artifactId>visallo-lts-dev-tomcat-server</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.visallo</groupId>
-            <artifactId>visallo-dev-tomcat-server</artifactId>
+            <artifactId>visallo-model-vertexium</artifactId>
+            <version>${visallo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.vertexium</groupId>
+            <artifactId>vertexium-inmemory</artifactId>
+            <version>${vertexium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.visallo</groupId>
+            <artifactId>visallo-core-test</artifactId>
+            <version>${visallo.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -161,6 +176,11 @@
         </dependency>
         <dependency>
             <groupId>org.visallo.examples</groupId>
+            <artifactId>extension-product-filter</artifactId>
+            <version>${examples.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.visallo.examples</groupId>
             <artifactId>extension-search-advanced</artifactId>
             <version>${examples.version}</version>
         </dependency>
@@ -208,7 +228,7 @@
                             <outputDirectory>${visallo.dir}/config</outputDirectory>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>org.visallo</groupId>
+                                    <groupId>com.visallo</groupId>
                                     <artifactId>visallo-config-example</artifactId>
                                     <version>${visallo.version}</version>
                                     <classifier>config</classifier>
@@ -243,29 +263,6 @@
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>com.google.code.maven-replacer-plugin</groupId>
-                <artifactId>replacer</artifactId>
-                <version>1.5.3</version>
-                <executions>
-                    <execution>
-                        <id>replace-debug-log-levels</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>replace</goal>
-                        </goals>
-                        <configuration>
-                            <file>${visallo.dir}/config/log4j2.xml</file>
-                            <replacements>
-                                <replacement>
-                                    <token>value="DEBUG"</token>
-                                    <value>value="INFO"</value>
-                                </replacement>
-                            </replacements>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
