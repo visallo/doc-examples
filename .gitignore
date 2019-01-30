@@ -4,3 +4,5 @@
 _run/work
 _run/config/LICENSE
 target
+node_modules
+dist

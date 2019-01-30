@@ -13,6 +13,7 @@ import javax.servlet.ServletContext;
 public class DetailTextWebAppPlugin implements WebAppPlugin {
 
     @Override
+    @SuppressWarnings("deprecation")
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
         app.registerJavaScript("/org/visallo/examples/detail_text/plugin.js", true);
         app.registerJavaScriptComponent("/org/visallo/examples/detail_text/Example.jsx");

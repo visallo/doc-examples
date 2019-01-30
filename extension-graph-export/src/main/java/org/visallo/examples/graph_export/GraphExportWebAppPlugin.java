@@ -13,6 +13,7 @@ import javax.servlet.ServletContext;
 public class GraphExportWebAppPlugin implements WebAppPlugin {
 
     @Override
+    @SuppressWarnings("deprecation")
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
         app.registerJavaScript("/org/visallo/examples/graph_export/plugin.js", true);
         app.registerJavaScript("/org/visallo/examples/graph_export/configuration.js", false);

@@ -1,12 +1,13 @@
 package org.visallo.examples.activity;
 
-import org.visallo.webster.Handler;
 import org.visallo.core.model.Description;
 import org.visallo.core.model.Name;
+import org.visallo.web.PluginRegistration;
 import org.visallo.web.VisalloCsrfHandler;
 import org.visallo.web.WebApp;
 import org.visallo.web.WebAppPlugin;
 import org.visallo.web.privilegeFilters.ReadPrivilegeFilter;
+import org.visallo.webster.Handler;
 
 import javax.servlet.ServletContext;
 
@@ -19,12 +20,11 @@ public class ActivityWebAppPlugin implements WebAppPlugin {
         Class<? extends Handler> authenticator = authenticationHandler.getClass();
         Class<? extends Handler> csrfProtector = VisalloCsrfHandler.class;
 
-        app.registerJavaScript("/org/visallo/examples/activity/plugin.js", true);
-        app.registerWebWorkerJavaScript("/org/visallo/examples/activity/service.js");
-
-        app.registerJavaScriptComponent("/org/visallo/examples/activity/Finished.jsx");
-
-        app.registerResourceBundle("/org/visallo/examples/activity/messages.properties");
+        PluginRegistration reg = app.registerFor(getClass());
+        reg.scripts()
+                .execute("plugin")
+                .executeInWebWorker("worker-plugin");
+        reg.messages("messages.properties");
 
         app.post("/org/visallo/examples/activity/start", authenticator, csrfProtector, ReadPrivilegeFilter.class, StartExample.class);
     }

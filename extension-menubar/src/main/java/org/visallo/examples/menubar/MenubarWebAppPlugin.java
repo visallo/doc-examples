@@ -13,6 +13,7 @@ import javax.servlet.ServletContext;
 public class MenubarWebAppPlugin implements WebAppPlugin {
 
     @Override
+    @SuppressWarnings("deprecation")
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
         app.registerJavaScript("/org/visallo/examples/menubar/plugin.js", true);
         app.registerJavaScriptComponent("/org/visallo/examples/menubar/Pane.jsx");

@@ -13,6 +13,7 @@ import javax.servlet.ServletContext;
 public class ProductFilterWebAppPlugin implements WebAppPlugin {
 
     @Override
+    @SuppressWarnings("deprecation")
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
         app.registerWebWorkerJavaScript("/org/visallo/examples/product_filter/plugin.js");
     }

@@ -13,6 +13,7 @@ import javax.servlet.ServletContext;
 public class LogoutWebAppPlugin implements WebAppPlugin {
 
     @Override
+    @SuppressWarnings("deprecation")
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
         app.registerJavaScript("/org/visallo/examples/logout/plugin.js", true);
         app.registerResourceBundle("/org/visallo/examples/logout/messages.properties");

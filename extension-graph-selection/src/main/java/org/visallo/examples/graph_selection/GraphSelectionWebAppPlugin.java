@@ -13,6 +13,7 @@ import javax.servlet.ServletContext;
 public class GraphSelectionWebAppPlugin implements WebAppPlugin {
 
     @Override
+    @SuppressWarnings("deprecation")
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
         app.registerJavaScript("/org/visallo/examples/graph_selection/plugin.js", true);
         app.registerResourceBundle("/org/visallo/examples/graph_selection/messages.properties");

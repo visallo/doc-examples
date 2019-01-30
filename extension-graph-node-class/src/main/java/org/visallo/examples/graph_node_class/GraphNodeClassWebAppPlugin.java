@@ -13,6 +13,7 @@ import javax.servlet.ServletContext;
 public class GraphNodeClassWebAppPlugin implements WebAppPlugin {
 
     @Override
+    @SuppressWarnings("deprecation")
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
         app.registerJavaScript("/org/visallo/examples/graph_node_class/plugin.js", true);
     }

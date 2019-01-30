@@ -17,6 +17,7 @@ import javax.servlet.ServletContext;
 public class SearchAdvancedWebAppPlugin implements WebAppPlugin {
 
     @Override
+    @SuppressWarnings("deprecation")
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
         AuthenticationHandler authenticatorInstance = new AuthenticationHandler();
         Class<? extends Handler> authenticator = AuthenticationHandler.class;

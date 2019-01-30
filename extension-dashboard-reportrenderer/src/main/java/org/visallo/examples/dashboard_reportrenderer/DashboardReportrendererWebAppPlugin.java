@@ -13,6 +13,7 @@ import javax.servlet.ServletContext;
 public class DashboardReportrendererWebAppPlugin implements WebAppPlugin {
 
     @Override
+    @SuppressWarnings("deprecation")
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
         app.registerJavaScript("/org/visallo/examples/dashboard_reportrenderer/plugin.js", true);
         app.registerJavaScript("/org/visallo/examples/dashboard_reportrenderer/renderer.js", false);

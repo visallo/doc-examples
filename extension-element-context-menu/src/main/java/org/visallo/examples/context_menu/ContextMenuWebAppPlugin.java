@@ -13,6 +13,7 @@ import javax.servlet.ServletContext;
 public class ContextMenuWebAppPlugin implements WebAppPlugin {
 
     @Override
+    @SuppressWarnings("deprecation")
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
         app.registerJavaScript("/org/visallo/examples/context_menu/plugin.js", true);
         app.registerResourceBundle("/org/visallo/examples/context_menu/messages.properties");

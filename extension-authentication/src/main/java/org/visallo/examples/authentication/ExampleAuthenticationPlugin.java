@@ -21,6 +21,7 @@ public class ExampleAuthenticationPlugin implements WebAppPlugin {
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
         app.registerBeforeAuthenticationJavaScript("/org/visallo/examples/authentication/plugin.js");
         app.registerJavaScript("/org/visallo/examples/authentication/authentication.js", false);

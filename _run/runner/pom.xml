@@ -31,9 +31,19 @@
             <version>${visallo.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.visallo</groupId>
+            <artifactId>visallo-model-vertexium-elasticsearch-core</artifactId>
+            <version>${visallo.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.vertexium</groupId>
             <artifactId>vertexium-inmemory</artifactId>
             <version>${vertexium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.visallo</groupId>
+            <artifactId>visallo-core</artifactId>
+            <version>${visallo.version}</version>
         </dependency>
         <dependency>
             <groupId>org.visallo</groupId>

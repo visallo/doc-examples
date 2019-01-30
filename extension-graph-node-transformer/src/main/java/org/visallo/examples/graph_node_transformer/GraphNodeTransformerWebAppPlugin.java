@@ -13,6 +13,7 @@ import javax.servlet.ServletContext;
 public class GraphNodeTransformerWebAppPlugin implements WebAppPlugin {
 
     @Override
+    @SuppressWarnings("deprecation")
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
         app.registerJavaScript("/org/visallo/examples/graph_node_transformer/plugin.js", true);
     }

@@ -13,6 +13,7 @@ import javax.servlet.ServletContext;
 public class VisibilityWebAppPlugin implements WebAppPlugin {
 
     @Override
+    @SuppressWarnings("deprecation")
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
         app.registerJavaScript("/org/visallo/examples/visibility/plugin.js", true);
 

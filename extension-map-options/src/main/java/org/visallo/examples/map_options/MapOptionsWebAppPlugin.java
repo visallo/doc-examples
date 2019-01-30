@@ -13,6 +13,7 @@ import javax.servlet.ServletContext;
 public class MapOptionsWebAppPlugin implements WebAppPlugin {
 
     @Override
+    @SuppressWarnings("deprecation")
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
         app.registerJavaScript("/org/visallo/examples/map_options/plugin.js", true);
         app.registerJavaScriptComponent("/org/visallo/examples/map_options/CountryBorders.jsx");
