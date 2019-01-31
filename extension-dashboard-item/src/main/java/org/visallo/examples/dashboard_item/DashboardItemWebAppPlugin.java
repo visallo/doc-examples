@@ -1,5 +1,6 @@
 package org.visallo.examples.dashboard_item;
 
+import org.visallo.web.PluginRegistration;
 import org.visallo.webster.Handler;
 import org.visallo.core.model.Description;
 import org.visallo.core.model.Name;
@@ -13,14 +14,10 @@ import javax.servlet.ServletContext;
 public class DashboardItemWebAppPlugin implements WebAppPlugin {
 
     @Override
-    @SuppressWarnings("deprecation")
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
-        app.registerJavaScript("/org/visallo/examples/dashboard_item/plugin.js", true);
-
-        app.registerJavaScriptComponent("/org/visallo/examples/dashboard_item/React.jsx");
-        app.registerJavaScriptComponent("/org/visallo/examples/dashboard_item/Config.jsx");
-
-        app.registerResourceBundle("/org/visallo/examples/dashboard_item/messages.properties");
+        PluginRegistration reg = app.registerFor(getClass());
+        reg.scripts().execute("plugin");
+        reg.messages("messages");
     }
 
 }

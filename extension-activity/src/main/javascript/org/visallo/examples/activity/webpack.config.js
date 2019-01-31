@@ -1,32 +1,15 @@
 /* eslint-env node */
-
 const path = require('path');
-const shared = {
-    mode: 'development',
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        publicPath: '/org/visallo/examples/activity/dist/',
-        filename: '[name].js',
-        libraryTarget: 'amd',
-    },
-    module: {
-        rules: [{
-            test: /\.jsx?$/,
-            include: [
-              path.resolve(__dirname, 'src')
-            ],
-            loader: 'babel-loader'
-        }]
-    }
-};
-const externals = (...list) => list.reduce((map, entry) => {
-    map[entry] = { amd: entry };
-    return map;
-}, {});
+const { shared, externals } = require('../../../../../../../../webpack.shared.js');
 
-const config = [
+const common = shared({
+    publicPath: '/org/visallo/examples/activity/dist/',
+    dir: __dirname
+})
+
+module.exports = [
     {
-        ...shared,
+        ...common,
         target: 'webworker',
         entry: {
             'worker-plugin': './src/worker-plugin.js',
@@ -35,10 +18,8 @@ const config = [
             'public/v1/workerApi'
         )
     },
-
     {
-        ...shared,
-        target: 'web',
+        ...common,
         entry: {
             plugin: './src/plugin.js',
             Finished: './src/Finished.jsx'
@@ -53,5 +34,3 @@ const config = [
         )
     }
 ];
-
-module.exports = config

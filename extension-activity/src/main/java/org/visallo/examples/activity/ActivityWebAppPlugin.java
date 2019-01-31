@@ -12,7 +12,7 @@ import org.visallo.webster.Handler;
 import javax.servlet.ServletContext;
 
 @Name("Activity")
-@Description("Custom activity rows based on events or long running processes")
+@Description("Custom admin rows based on events or long running processes")
 public class ActivityWebAppPlugin implements WebAppPlugin {
 
     @Override

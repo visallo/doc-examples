@@ -1,5 +1,6 @@
 package org.visallo.examples.map_options;
 
+import org.visallo.web.PluginRegistration;
 import org.visallo.webster.Handler;
 import org.visallo.core.model.Description;
 import org.visallo.core.model.Name;
@@ -13,12 +14,11 @@ import javax.servlet.ServletContext;
 public class MapOptionsWebAppPlugin implements WebAppPlugin {
 
     @Override
-    @SuppressWarnings("deprecation")
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
-        app.registerJavaScript("/org/visallo/examples/map_options/plugin.js", true);
-        app.registerJavaScriptComponent("/org/visallo/examples/map_options/CountryBorders.jsx");
-        app.registerFile("/org/visallo/examples/map_options/countries.geojson", "application/vnd.geo+json");
-        app.registerResourceBundle("/org/visallo/examples/map_options/messages.properties");
+        PluginRegistration reg = app.registerFor(getClass());
+        reg.scripts().execute("plugin");
+        reg.files("application/vnd.geo+json", "countries.geojson");
+        reg.messages("messages");
     }
 
 }

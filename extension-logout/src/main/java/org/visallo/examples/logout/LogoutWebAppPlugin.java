@@ -1,5 +1,6 @@
 package org.visallo.examples.logout;
 
+import org.visallo.web.PluginRegistration;
 import org.visallo.webster.Handler;
 import org.visallo.core.model.Description;
 import org.visallo.core.model.Name;
@@ -13,10 +14,10 @@ import javax.servlet.ServletContext;
 public class LogoutWebAppPlugin implements WebAppPlugin {
 
     @Override
-    @SuppressWarnings("deprecation")
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
-        app.registerJavaScript("/org/visallo/examples/logout/plugin.js", true);
-        app.registerResourceBundle("/org/visallo/examples/logout/messages.properties");
+        PluginRegistration reg = app.registerFor(getClass());
+        reg.scripts().execute("plugin");
+        reg.messages("messages");
     }
 
 }

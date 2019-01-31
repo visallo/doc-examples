@@ -1,5 +1,6 @@
 package org.visallo.examples.graph_layout;
 
+import org.visallo.web.PluginRegistration;
 import org.visallo.webster.Handler;
 import org.visallo.core.model.Description;
 import org.visallo.core.model.Name;
@@ -13,10 +14,10 @@ import javax.servlet.ServletContext;
 public class GraphLayoutWebAppPlugin implements WebAppPlugin {
 
     @Override
-    @SuppressWarnings("deprecation")
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
-        app.registerJavaScript("/org/visallo/examples/graph_layout/plugin.js", true);
-        app.registerResourceBundle("/org/visallo/examples/graph_layout/messages.properties");
+        PluginRegistration reg = app.registerFor(getClass());
+        reg.scripts().execute("plugin");
+        reg.messages("messages");
     }
 
 }

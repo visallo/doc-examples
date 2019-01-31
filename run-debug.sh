@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-mvn -Ddebug -Prun package $@
+mvn -T 2C -Djava.awt.headless=true -Ddebug -Prun package $@

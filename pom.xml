@@ -18,6 +18,7 @@
         <java.target.version>1.8</java.target.version>
         <visallo.version>4.6-SNAPSHOT</visallo.version>
         <examples.version>0.1-SNAPSHOT</examples.version>
+        <frontend.dir>${project.basedir}</frontend.dir>
     </properties>
 
     <modules>
@@ -87,16 +88,6 @@
         <dependencies>
             <dependency>
                 <groupId>org.visallo</groupId>
-                <artifactId>visallo-core</artifactId>
-                <version>${visallo.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.visallo</groupId>
-                <artifactId>visallo-model-vertexium-elasticsearch</artifactId>
-                <version>${visallo.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.visallo</groupId>
                 <artifactId>visallo-model-vertexium</artifactId>
                 <version>${visallo.version}</version>
             </dependency>
@@ -113,9 +104,60 @@
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
-                <scope>runtime</scope>
+                <scope>provided</scope>
                 <version>3.1.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <inherited>false</inherited>
+                        <id>webpack</id>
+                        <phase>none</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+            </plugin>
+        </plugins>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.github.eirslett</groupId>
+                    <artifactId>frontend-maven-plugin</artifactId>
+                    <configuration>
+                        <workingDirectory>${frontend.dir}</workingDirectory>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>test</id>
+                            <phase>none</phase>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <configuration>
+                        <filesets>
+                            <fileset>
+                                <directory>${frontend.dir}</directory>
+                                <includes>
+                                    <include>dist/</include>
+                                    <include>node_modules/</include>
+                                </includes>
+                            </fileset>
+                        </filesets>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>
