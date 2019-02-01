@@ -14,6 +14,7 @@
     "eslint-loader": "^2.1.1",
     "handlebars": "^4.0.12",
     "handlebars-loader": "^1.7.1",
-    "react-css-modules": "^4.7.9"
+    "react-css-modules": "^4.7.9",
+    "webpack": "^4.29.0"
   }
 }

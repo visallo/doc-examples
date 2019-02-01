@@ -4,7 +4,7 @@ import org.json.JSONObject;
 import org.visallo.core.util.ClientApiConverter;
 
 public class ExampleQueueItem {
-    public static String TYPE = "org-visallo-examples-admin";
+    public static String TYPE = "org-visallo-examples-activity";
 
     private String propertyA;
 

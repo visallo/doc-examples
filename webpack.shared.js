@@ -1,11 +1,16 @@
 const path = require('path');
+const Template = require('webpack/lib/Template');
 
-const shared = ({ publicPath, dir }) => ({
+const shared = ({ publicPath, dir, target = 'web' }) => ({
     mode: 'development',
-    target: 'web',
+    target,
     output: {
         path: path.resolve(dir, 'dist'),
         publicPath,
+        devtoolNamespace: Template.toIdentifier(publicPath + target),
+        jsonpFunction: Template.toIdentifier(publicPath + target + '-jsonp'),
+        hotUpdateFunction: Template.toIdentifier(publicPath + target + '-webpackHotUpdate'),
+        chunkCallbackName: Template.toIdentifier(publicPath + target + '-webpackChunk'),
         filename: '[name].js',
         libraryTarget: 'amd',
     },

@@ -4,7 +4,7 @@ const { shared, externals } = require('../../../../../../../../webpack.shared.js
 
 module.exports = {
     ...shared({
-       publicPath: '/org/visallo/examples/ingest_cloud/dist/',
+       publicPath: '/jsc/org/visallo/examples/ingest_cloud/dist/',
        dir: __dirname
     }),
     entry: {

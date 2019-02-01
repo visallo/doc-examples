@@ -3,7 +3,7 @@ import { Component } from 'react'
 class Finished extends Component {
 
     render() {
-        return <button onClick={this.onClick} className="btn btn-mini">Test</button>
+        return <button onClick={this.onClick} className="btn btn-mini">Show JSON</button>
     }
 
     onClick = () => {

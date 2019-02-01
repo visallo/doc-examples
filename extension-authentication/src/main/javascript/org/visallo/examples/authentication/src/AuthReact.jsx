@@ -6,7 +6,6 @@ class AuthReact extends Component {
     constructor(props) {
         super(props);
         this.state = { username: '', password: '', loading: false }
-        this.form = createRef();
     }
 
     render() {
@@ -19,23 +18,25 @@ class AuthReact extends Component {
         }
 
         return (
-            <div class="basic-auth">
-              <form action="" className="login" ref={this.form} onSubmit={this.onSubmit}>
+            <div className="basic-auth">
+              <form action="" className="login" onSubmit={this.onSubmit}>
                 <p className="text-error">{error || null}</p>
 
                 <input
                     name="username"
                     className="username"
                     type="text"
+                    autoComplete="username"
                     placeholder={i18n('org.visallo.examples.authentication.username')}
                     value={username}
                     onChange={this.onChange}
-                    autofocus
+                    autoFocus
                 />
                 <input
                     name="password"
                     className="password"
                     type="password"
+                    autoComplete="current-password"
                     placeholder={i18n('org.visallo.examples.authentication.password')}
                     value={password}
                     onChange={this.onChange}
@@ -62,30 +63,30 @@ class AuthReact extends Component {
         const { onLoginSuccess } = this.props;
         const { username, password, loading } = this.state;
 
+        event.preventDefault();
         if (loading) {
             return;
         }
 
         this.setState({ loading: true, errorMessage: null })
 
-        console.log(username, password, this.form.current)
-        const data = new FormData(this.form.current);
+        const data = new URLSearchParams();
+        data.append('username', username);
+        data.append('password', password);
 
         requestIdleCallback(() => {
-            console.log(data)
-
-            fetch('login', data)
-                .then(() => {
-                    onLoginSuccess();
-                })
-                .catch(error => {
-                    console.log('error', error)
-                    let errorMessage = error && error.message ||
-                        i18n('org.visallo.examples.authentication.unknown');
-                    if (error.status === 403) {
-                        errorMessage = i18n('org.visallo.examples.authentication.invalid');
+            fetch('login', { method: 'POST', body: data })
+                .then(response => {
+                    if (response.ok) {
+                        onLoginSuccess();
+                    } else {
+                        let errorMessage = response.statusText ||
+                            i18n('org.visallo.examples.authentication.unknown');
+                        if (response.status === 403) {
+                            errorMessage = i18n('org.visallo.examples.authentication.invalid');
+                        }
+                        this.setState({ errorMessage, loading: false })
                     }
-                    this.setState({ errorMessage, loading: false })
                 })
         })
     }

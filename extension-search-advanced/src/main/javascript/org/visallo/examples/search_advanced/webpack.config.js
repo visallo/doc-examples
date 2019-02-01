@@ -3,7 +3,7 @@ const path = require('path');
 const { shared, externals } = require('../../../../../../../../webpack.shared.js');
 
 const common = shared({
-    publicPath: '/org/visallo/examples/search_advanced/dist/',
+    publicPath: '/jsc/org/visallo/examples/search_advanced/dist/',
     dir: __dirname
 })
 

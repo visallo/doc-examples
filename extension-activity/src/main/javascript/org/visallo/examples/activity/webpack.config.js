@@ -3,7 +3,7 @@ const path = require('path');
 const { shared, externals } = require('../../../../../../../../webpack.shared.js');
 
 const common = shared({
-    publicPath: '/org/visallo/examples/activity/dist/',
+    publicPath: '/jsc/org/visallo/examples/activity/dist/',
     dir: __dirname
 })
 
@@ -21,8 +21,7 @@ module.exports = [
     {
         ...common,
         entry: {
-            plugin: './src/plugin.js',
-            Finished: './src/Finished.jsx'
+            plugin: './src/plugin.js'
         },
         externals: externals(
             'public/v1/api',

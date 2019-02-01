@@ -7,7 +7,7 @@ const useReactAuth = true;
 
 module.exports = {
     ...shared({
-       publicPath: '/org/visallo/examples/authentication/dist/',
+       publicPath: '/jsc/org/visallo/examples/authentication/dist/',
        dir: __dirname
     }),
     entry: {
