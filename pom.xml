@@ -88,16 +88,6 @@
         <dependencies>
             <dependency>
                 <groupId>org.visallo</groupId>
-                <artifactId>visallo-core</artifactId>
-                <version>${visallo.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.visallo</groupId>
-                <artifactId>visallo-model-vertexium-elasticsearch</artifactId>
-                <version>${visallo.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.visallo</groupId>
                 <artifactId>visallo-model-vertexium</artifactId>
                 <version>${visallo.version}</version>
             </dependency>
@@ -114,7 +104,7 @@
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
-                <scope>runtime</scope>
+                <scope>provided</scope>
                 <version>3.1.0</version>
             </dependency>
         </dependencies>

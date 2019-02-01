@@ -4,7 +4,7 @@ registry.registerExtension('org.visallo.activity', {
     type: 'org-visallo-examples-activity',
     kind: 'longRunningProcess',
     titleRenderer: function(el, process) {
-        el.textContent = "Example Activity";
+        el.textContent = 'Example Activity';
     },
     finishedComponentPath: 'org/visallo/examples/activity/dist/Finished'
 });

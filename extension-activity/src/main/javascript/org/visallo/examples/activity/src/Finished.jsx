@@ -7,6 +7,7 @@ class Finished extends Component {
     }
 
     onClick = () => {
+        /* eslint no-alert: 0 */
         alert(JSON.stringify(this.props.process, null, 2));
     }
 }
