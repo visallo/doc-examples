@@ -1,18 +1,19 @@
 package org.visallo.examples.authentication;
 
 import com.google.inject.Inject;
-import org.visallo.webster.ParameterizedHandler;
-import org.visallo.webster.annotations.Handle;
-import org.visallo.webster.annotations.Required;
 import org.json.JSONObject;
 import org.visallo.core.exception.VisalloAccessDeniedException;
-import org.visallo.core.model.user.UserNameAuthorizationContext;
+import org.visallo.core.model.user.AuthorizationContext;
 import org.visallo.core.model.user.UserRepository;
 import org.visallo.core.user.User;
 import org.visallo.web.CurrentUser;
 import org.visallo.web.util.RemoteAddressUtil;
+import org.visallo.webster.ParameterizedHandler;
+import org.visallo.webster.annotations.Handle;
+import org.visallo.webster.annotations.Required;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 
 public class Login implements ParameterizedHandler {
 
@@ -25,16 +26,23 @@ public class Login implements ParameterizedHandler {
 
     @Handle
     public JSONObject handle(
-            HttpServletRequest request,
-            @Required(name = "username") String username,
-            @Required(name = "password") String password
+        HttpServletRequest request,
+        @Required(name = "username") String username,
+        @Required(name = "password") String password
     ) throws Exception {
         username = username.trim();
         password = password.trim();
 
         if (isValid(username, password)) {
             User user = findOrCreateUser(username);
-            userRepository.updateUser(user, new UserNameAuthorizationContext(username, RemoteAddressUtil.getClientIpAddr(request)));
+            AuthorizationContext context = new AuthorizationContext(
+                RemoteAddressUtil.getClientIpAddr(request),
+                user.getUserId(),
+                user.getUsername(),
+                user.getDisplayName(),
+                new HashMap<>()
+            );
+            userRepository.updateUser(user, context);
             CurrentUser.set(request, user);
             JSONObject json = new JSONObject();
             json.put("status", "OK");

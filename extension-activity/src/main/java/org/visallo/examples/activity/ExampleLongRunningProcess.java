@@ -34,8 +34,8 @@ public class ExampleLongRunningProcess extends LongRunningProcessWorker {
     }
 
     private void delay() {
-       try {
-           Thread.sleep(30);
-       } catch (InterruptedException e) { }
+        try {
+            Thread.sleep(30);
+        } catch (InterruptedException e) { }
     }
 }
