@@ -88,6 +88,11 @@
         <dependencies>
             <dependency>
                 <groupId>org.visallo</groupId>
+                <artifactId>visallo-build-tools</artifactId>
+                <version>${visallo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.visallo</groupId>
                 <artifactId>visallo-model-vertexium</artifactId>
                 <version>${visallo.version}</version>
             </dependency>

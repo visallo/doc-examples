@@ -1,5 +1,5 @@
 {
-  "name": "visallo-example-activity",
+  "name": "visallo-examples",
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
@@ -11,6 +11,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-react-css-modules": "^5.0.0",
+    "eslint": "^5.13.0",
     "eslint-loader": "^2.1.1",
     "handlebars": "^4.0.12",
     "handlebars-loader": "^1.7.1",

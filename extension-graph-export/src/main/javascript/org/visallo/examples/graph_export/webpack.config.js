@@ -8,11 +8,10 @@ module.exports = {
        dir: __dirname
     }),
     entry: {
-        plugin: './src/plugin.js',
-        configuration: './src/configuration.js'
+        plugin: './src/plugin.js'
     },
     externals: externals(
         'public/v1/api',
-        'handlebars'
+        'react'
     )
 }

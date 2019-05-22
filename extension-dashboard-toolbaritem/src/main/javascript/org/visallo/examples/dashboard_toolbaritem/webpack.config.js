@@ -8,10 +8,10 @@ module.exports = {
        dir: __dirname
     }),
     entry: {
-        plugin: './src/plugin.js',
-        popover: './src/popover.js'
+        plugin: './src/plugin.js'
     },
     externals: externals(
-        'public/v1/api'
+        'public/v1/api',
+        'react'
     )
 }

@@ -1,12 +1,12 @@
-import { defineComponent } from 'public/v1/api'
+import { Component } from 'react'
 
-export default defineComponent(ExampleToolbarPopover);
+class ExampleToolbarPopover extends Component {
 
-function ExampleToolbarPopover() {
-
-    this.after('initialize', function() {
-        this.$node.text('Example Popover');
-    });
-
+    render() {
+        return (
+            <p>Example popover</p>
+        )
+    }
 }
 
+export default ExampleToolbarPopover

@@ -1,6 +1,8 @@
 import { registry } from 'public/v1/api'
+import { lazy } from 'react'
 
-registry.registerExtension('org.visallo.graph.options', {
+registry.registerExtension('org.visallo.product.toolbar.item', {
     identifier: 'org-visallo-examples-graph-opts',
-    optionComponentPath: 'org/visallo/examples/graph_options/dist/React'
+    canHandle: product => product.kind === 'org.visallo.web.product.graph.GraphWorkProduct',
+    component: lazy(() => import('./React'))
 });

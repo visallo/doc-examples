@@ -26,9 +26,9 @@ public class Login implements ParameterizedHandler {
 
     @Handle
     public ClientApiObject handle(
-            HttpServletRequest request,
-            @Required(name = "username") String username,
-            @Required(name = "password") String password
+        HttpServletRequest request,
+        @Required(name = "username") String username,
+        @Required(name = "password") String password
     ) throws Exception {
         username = username.trim();
         password = password.trim();
