@@ -1,5 +1,6 @@
 package org.visallo.examples.detail_toolbar;
 
+import org.visallo.web.PluginRegistration;
 import org.visallo.webster.Handler;
 import org.visallo.core.model.Description;
 import org.visallo.core.model.Name;
@@ -14,8 +15,9 @@ public class DetailToolbarWebAppPlugin implements WebAppPlugin {
 
     @Override
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
-        app.registerJavaScript("/org/visallo/examples/detail_toolbar/plugin.js", true);
-        app.registerResourceBundle("/org/visallo/examples/detail_toolbar/messages.properties");
+        PluginRegistration reg = app.registerFor(getClass());
+        reg.scripts().execute("plugin");
+        reg.messages("messages");
     }
 
 }

@@ -1,6 +1,7 @@
 package org.visallo.examples.authentication;
 
 import com.google.inject.Inject;
+import org.visallo.web.PluginRegistration;
 import org.visallo.webster.Handler;
 import org.visallo.core.model.Description;
 import org.visallo.core.model.Name;
@@ -22,11 +23,14 @@ public class ExampleAuthenticationPlugin implements WebAppPlugin {
 
     @Override
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
-        app.registerBeforeAuthenticationJavaScript("/org/visallo/examples/authentication/plugin.js");
-        app.registerJavaScript("/org/visallo/examples/authentication/authentication.js", false);
-        app.registerJavaScriptTemplate("/org/visallo/examples/authentication/login.hbs");
-        app.registerCss("/org/visallo/examples/authentication/login.css");
-        app.registerResourceBundle("/org/visallo/examples/authentication/messages.properties");
+
+        PluginRegistration reg = app.registerFor(getClass());
+
+        reg.scripts()
+                .executeBeforeAuthentication("plugin");
+
+        reg.css("login");
+        reg.messages("messages");
 
         app.post(AuthenticationHandler.LOGIN_PATH, login);
     }

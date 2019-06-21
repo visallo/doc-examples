@@ -1,5 +1,6 @@
 package org.visallo.examples.ingest_cloud;
 
+import org.visallo.web.PluginRegistration;
 import org.visallo.webster.Handler;
 import org.visallo.core.model.Description;
 import org.visallo.core.model.Name;
@@ -14,11 +15,9 @@ public class IngestCloudWebAppPlugin implements WebAppPlugin {
 
     @Override
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
-        app.registerJavaScript("/org/visallo/examples/ingest_cloud/plugin.js", true);
-
-        app.registerJavaScriptComponent("/org/visallo/examples/ingest_cloud/UrlConfig.jsx");
-
-        app.registerResourceBundle("/org/visallo/examples/ingest_cloud/messages.properties");
+        PluginRegistration reg = app.registerFor(getClass());
+        reg.scripts().execute("plugin");
+        reg.messages("messages");
     }
 
 }

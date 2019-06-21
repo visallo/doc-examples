@@ -13,6 +13,10 @@
     <packaging>jar</packaging>
     <name>Example Visallo Plugin: Extension Dashboard Item</name>
 
+    <properties>
+        <frontend.dir>${project.basedir}/src/main/javascript/org/visallo/examples/dashboard_item</frontend.dir>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.visallo</groupId>
@@ -24,4 +28,13 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

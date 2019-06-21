@@ -1,5 +1,6 @@
 package org.visallo.examples.context_menu;
 
+import org.visallo.web.PluginRegistration;
 import org.visallo.webster.Handler;
 import org.visallo.core.model.Description;
 import org.visallo.core.model.Name;
@@ -14,9 +15,10 @@ public class ContextMenuWebAppPlugin implements WebAppPlugin {
 
     @Override
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
-        app.registerJavaScript("/org/visallo/examples/context_menu/plugin.js", true);
-        app.registerResourceBundle("/org/visallo/examples/context_menu/messages.properties");
-        app.registerLess("/org/visallo/examples/context_menu/style.less");
+        PluginRegistration reg = app.registerFor(getClass());
+        reg.scripts().execute("plugin");
+        reg.messages("messages");
+        reg.less("style");
     }
 
 }

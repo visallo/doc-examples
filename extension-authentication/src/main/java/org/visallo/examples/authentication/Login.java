@@ -1,12 +1,13 @@
 package org.visallo.examples.authentication;
 
 import com.google.inject.Inject;
-import org.json.JSONObject;
 import org.visallo.core.exception.VisalloAccessDeniedException;
 import org.visallo.core.model.user.AuthorizationContext;
 import org.visallo.core.model.user.UserRepository;
 import org.visallo.core.user.User;
 import org.visallo.web.CurrentUser;
+import org.visallo.web.VisalloResponse;
+import org.visallo.web.clientapi.model.ClientApiObject;
 import org.visallo.web.util.RemoteAddressUtil;
 import org.visallo.webster.ParameterizedHandler;
 import org.visallo.webster.annotations.Handle;
@@ -25,7 +26,7 @@ public class Login implements ParameterizedHandler {
     }
 
     @Handle
-    public JSONObject handle(
+    public ClientApiObject handle(
         HttpServletRequest request,
         @Required(name = "username") String username,
         @Required(name = "password") String password
@@ -44,9 +45,7 @@ public class Login implements ParameterizedHandler {
             );
             userRepository.updateUser(user, context);
             CurrentUser.set(request, user);
-            JSONObject json = new JSONObject();
-            json.put("status", "OK");
-            return json;
+            return VisalloResponse.SUCCESS;
         } else {
             throw new VisalloAccessDeniedException("", null, null);
         }

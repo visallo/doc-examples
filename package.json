@@ -1,0 +1,21 @@
+{
+  "name": "visallo-examples",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.1",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-react-css-modules": "^5.0.0",
+    "eslint": "^5.13.0",
+    "eslint-loader": "^2.1.1",
+    "handlebars": "^4.0.12",
+    "handlebars-loader": "^1.7.1",
+    "react-css-modules": "^4.7.9",
+    "webpack": "^4.29.0"
+  }
+}

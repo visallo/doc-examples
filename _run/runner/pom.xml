@@ -31,14 +31,25 @@
             <version>${visallo.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.visallo</groupId>
+            <artifactId>visallo-model-vertexium-elasticsearch-core</artifactId>
+            <version>${visallo.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.vertexium</groupId>
             <artifactId>vertexium-inmemory</artifactId>
             <version>${vertexium.version}</version>
         </dependency>
         <dependency>
             <groupId>org.visallo</groupId>
+            <artifactId>visallo-core</artifactId>
+            <version>${visallo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.visallo</groupId>
             <artifactId>visallo-core-test</artifactId>
             <version>${visallo.version}</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -275,6 +286,20 @@
                         </fileset>
                     </filesets>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>yarn</id>
+                        <phase>none</phase>
+                    </execution>
+                    <execution>
+                        <id>webpack</id>
+                        <phase>none</phase>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

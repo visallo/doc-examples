@@ -10,3 +10,10 @@ To run Visallo with all plugins:
 After startup the application is available at [https://localhost:8443](https://localhost:8443)
 
 The login is any username with the same password.
+
+
+## Developers
+
+Requires Visallo jars installed in maven repository. In Visallo repo
+
+    mvnp install -DskipTests -Dmaven.javadoc.skip=true

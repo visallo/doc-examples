@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-mvn -Prun package $@
+mvn -T 2C -Prun package $@

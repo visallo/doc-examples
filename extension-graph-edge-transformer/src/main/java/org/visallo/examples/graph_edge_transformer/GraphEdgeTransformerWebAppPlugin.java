@@ -1,5 +1,6 @@
 package org.visallo.examples.graph_edge_transformer;
 
+import org.visallo.web.PluginRegistration;
 import org.visallo.webster.Handler;
 import org.visallo.core.model.Description;
 import org.visallo.core.model.Name;
@@ -14,7 +15,8 @@ public class GraphEdgeTransformerWebAppPlugin implements WebAppPlugin {
 
     @Override
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
-        app.registerJavaScript("/org/visallo/examples/graph_edge_transformer/plugin.js", true);
+        PluginRegistration reg = app.registerFor(getClass());
+        reg.scripts().execute("plugin");
     }
 
 }

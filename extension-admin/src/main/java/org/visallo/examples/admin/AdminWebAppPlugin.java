@@ -1,5 +1,6 @@
 package org.visallo.examples.admin;
 
+import org.visallo.web.PluginRegistration;
 import org.visallo.webster.Handler;
 import org.visallo.core.model.Description;
 import org.visallo.core.model.Name;
@@ -14,13 +15,9 @@ public class AdminWebAppPlugin implements WebAppPlugin {
 
     @Override
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
-        app.registerJavaScript("/org/visallo/examples/admin/plugin.js");
-
-        app.registerJavaScriptComponent("/org/visallo/examples/admin/React.jsx");
-        app.registerJavaScript("/org/visallo/examples/admin/flight.js", false);
-        app.registerJavaScriptTemplate("/org/visallo/examples/admin/flight-template.hbs");
-
-        app.registerResourceBundle("/org/visallo/examples/admin/messages.properties");
+        PluginRegistration reg = app.registerFor(getClass());
+        reg.scripts().execute("plugin");
+        reg.messages("messages");
     }
 
 }

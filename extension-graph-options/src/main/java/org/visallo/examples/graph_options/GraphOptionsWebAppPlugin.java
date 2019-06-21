@@ -1,5 +1,6 @@
 package org.visallo.examples.graph_options;
 
+import org.visallo.web.PluginRegistration;
 import org.visallo.webster.Handler;
 import org.visallo.core.model.Description;
 import org.visallo.core.model.Name;
@@ -14,9 +15,9 @@ public class GraphOptionsWebAppPlugin implements WebAppPlugin {
 
     @Override
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
-        app.registerJavaScript("/org/visallo/examples/graph_options/plugin.js", true);
-        app.registerJavaScriptComponent("/org/visallo/examples/graph_options/React.jsx");
-        app.registerResourceBundle("/org/visallo/examples/graph_options/messages.properties");
+        PluginRegistration reg = app.registerFor(getClass());
+        reg.scripts().execute("plugin");
+        reg.messages("messages");
     }
 
 }

@@ -1,10 +1,11 @@
 package org.visallo.examples.product_filter;
 
-import org.visallo.webster.Handler;
 import org.visallo.core.model.Description;
 import org.visallo.core.model.Name;
+import org.visallo.web.PluginRegistration;
 import org.visallo.web.WebApp;
 import org.visallo.web.WebAppPlugin;
+import org.visallo.webster.Handler;
 
 import javax.servlet.ServletContext;
 
@@ -14,7 +15,8 @@ public class ProductFilterWebAppPlugin implements WebAppPlugin {
 
     @Override
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
-        app.registerWebWorkerJavaScript("/org/visallo/examples/product_filter/plugin.js");
+        PluginRegistration reg = app.registerFor(getClass());
+        reg.scripts().executeInWebWorker("plugin");
     }
 
 }

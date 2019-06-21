@@ -1,5 +1,6 @@
 package org.visallo.examples.graph_view;
 
+import org.visallo.web.PluginRegistration;
 import org.visallo.webster.Handler;
 import org.visallo.core.model.Description;
 import org.visallo.core.model.Name;
@@ -14,10 +15,10 @@ public class GraphViewWebAppPlugin implements WebAppPlugin {
 
     @Override
     public void init(WebApp app, ServletContext servletContext, Handler authenticationHandler) {
-        app.registerJavaScript("/org/visallo/examples/graph_view/plugin.js", true);
-        app.registerJavaScriptComponent("/org/visallo/examples/graph_view/View.jsx");
-        app.registerLess("/org/visallo/examples/graph_view/style.less");
-        app.registerResourceBundle("/org/visallo/examples/graph_view/messages.properties");
+        PluginRegistration reg = app.registerFor(getClass());
+        reg.scripts().execute("plugin");
+        reg.less("style");
+        reg.messages("messages");
     }
 
 }
