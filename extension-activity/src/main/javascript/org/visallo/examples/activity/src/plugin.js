@@ -4,8 +4,8 @@ import { lazy } from 'react'
 registry.registerExtension('org.visallo.activity', {
     type: 'org-visallo-examples-activity',
     kind: 'longRunningProcess',
-    titleRenderer: function(el, process) {
-        el.textContent = 'Example Activity';
+    titleComponent: function(process) {
+        return <div>Example Activity</div>;
     },
     finishedComponent: lazy(() => import('./Finished'))
 });
