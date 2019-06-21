@@ -1,6 +1,5 @@
 import { registry } from 'public/v1/api'
-import AuthFlight from './AuthFlight'
 
 registry.registerExtension('org.visallo.authentication', {
-    component: AuthFlight
+    componentPath: 'org/visallo/examples/authentication/dist/Auth'
 })

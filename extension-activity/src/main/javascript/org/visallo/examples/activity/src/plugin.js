@@ -1,5 +1,4 @@
 import { registry, connect } from 'public/v1/api'
-import { lazy } from 'react'
 
 registry.registerExtension('org.visallo.activity', {
     type: 'org-visallo-examples-activity',
@@ -7,7 +6,7 @@ registry.registerExtension('org.visallo.activity', {
     titleComponent: function(process) {
         return <div>Example Activity</div>;
     },
-    finishedComponent: lazy(() => import('./Finished'))
+    finishedComponentPath: 'org/visallo/examples/activity/dist/Finished'
 });
 
 window.startActivity = function(propertyA) {

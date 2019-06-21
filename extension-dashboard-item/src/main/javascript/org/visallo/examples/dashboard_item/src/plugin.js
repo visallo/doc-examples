@@ -1,5 +1,4 @@
 import { registry } from 'public/v1/api'
-import { lazy } from 'react'
 
 registry.registerExtension('org.visallo.web.dashboard.item', {
     title: 'Concept Type Counts',
@@ -27,6 +26,6 @@ registry.registerExtension('org.visallo.dashboard.item', {
     title: 'React Component',
     description: 'Example React Component',
     identifier: 'org-visallo-examples-dashboard-item-react',
-    component: lazy(() => import('./React')),
-    configuration: lazy(() => import('./Config'))
+    componentPath: 'org/visallo/examples/dashboard_item/dist/React',
+    configurationPath: 'org/visallo/examples/dashboard_item/dist/Config',
 });

@@ -8,7 +8,8 @@ module.exports = {
        dir: __dirname
     }),
     entry: {
-        plugin: './src/plugin.js'
+        plugin: './src/plugin.js',
+        Example: './src/Example.jsx',
     },
     externals: externals(
         'public/v1/api',

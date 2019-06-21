@@ -1,7 +1,8 @@
 import { registry } from 'public/v1/api'
 
-registry.registerExtension('org.visallo.map.options', {
+registry.registerExtension('org.visallo.product.toolbar.item', {
     identifier: 'org-visallo-examples-map_options-countryborders',
-    optionComponentPath: 'org/visallo/examples/map_options/dist/CountryBorders'
+    canHandle: product => product.kind === 'org.visallo.web.product.map.MapWorkProduct',
+    itemComponentPath: 'org/visallo/examples/map_options/dist/CountryBorders'
 });
 
