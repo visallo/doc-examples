@@ -1,6 +1,6 @@
 import { registry, connect } from 'public/v1/api'
 
-registry.registerExtension('org.visallo.logout', function() {
+registry.registerExtension('org.visallo.logout', function({ errorMessage }) {
     var seconds = 3;
     /* eslint no-alert: 0 */
     alert('Will logout in ' + seconds + ' seconds');
@@ -14,7 +14,7 @@ registry.registerExtension('org.visallo.logout', function() {
                 return import('login');
             })
             .then(function(Login) {
-                Login.setErrorMessage("Custom Error Message");
+                Login.setErrorMessage(errorMessage);
                 window.location.reload();
             })
     }, seconds * 1000)

@@ -1,6 +1,6 @@
 import { registry } from 'public/v1/api'
-import AuthFlight from './AuthFlight'
+import { lazy } from 'react'
 
 registry.registerExtension('org.visallo.authentication', {
-    component: AuthFlight
+    component: lazy(() => import('./AuthReact'))
 })
