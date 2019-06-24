@@ -16,4 +16,4 @@ The login is any username with the same password.
 
 Requires Visallo jars installed in maven repository. In Visallo repo
 
-    mvnp install -DskipTests -Dmaven.javadoc.skip=true
+    mvn -T 1C install -DskipTests -Dmaven.javadoc.skip=true
