@@ -14,7 +14,7 @@ registry.registerExtension('org.visallo.logout', function() {
                 return import('login');
             })
             .then(function(Login) {
-                Login.setErrorMessage("Custom Error Message");
+                Login.setErrorMessage('Custom Error Message');
                 window.location.reload();
             })
     }, seconds * 1000)

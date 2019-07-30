@@ -6,9 +6,8 @@ registry.registerExtension('org.visallo.service', {
         search: function(query, offset, size) {
             return ajax('GET', '/element/search', {
                 q: query,
-                filter: '[]',
-                offset: offset,
-                size: size
+                offset,
+                size
             })
         }
     }
