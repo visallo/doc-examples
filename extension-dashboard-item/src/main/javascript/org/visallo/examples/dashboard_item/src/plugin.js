@@ -6,18 +6,18 @@ registry.registerExtension('org.visallo.web.dashboard.item', {
     identifier: 'org-visallo-examples-dashboard-item',
     report: {
         defaultRenderer: 'org-visallo-pie',
-        endpoint: '/vertex/search',
+        service: 'vertex',
+        method: 'search',
         endpointParameters: {
             q: '*',
             size: 0,
-            filter: '[]',
             aggregations: [
                 {
                     type: 'term',
                     name: 'field',
                     field: 'http://visallo.org#conceptType'
                 }
-            ].map(JSON.stringify)
+            ]
         }
     }
 });
