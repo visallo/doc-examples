@@ -8,9 +8,7 @@ module.exports = {
        dir: __dirname
     }),
     entry: {
-        plugin: './src/plugin.js',
-        Config: './src/Config.jsx',
-        React: './src/React.jsx',
+        plugin: './src/plugin.js'
     },
     externals: externals(
         'public/v1/api',

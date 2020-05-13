@@ -1,4 +1,5 @@
 import { registry } from 'public/v1/api'
+import Popover from './popover'
 
 registry.registerExtension('org.visallo.dashboard.toolbar.item', {
     identifier: 'org-visallo-examples-dashboard-toolbar',
@@ -9,7 +10,7 @@ registry.registerExtension('org.visallo.dashboard.toolbar.item', {
     icon: '/org/visallo/examples/dashboard_toolbaritem/trash.png',
     action: {
         type: 'popover',
-        componentPath: 'org/visallo/examples/dashboard_toolbaritem/dist/popover'
+        component: Popover
     }
 });
 

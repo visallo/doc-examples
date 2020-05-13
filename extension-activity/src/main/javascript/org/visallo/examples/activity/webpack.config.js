@@ -21,8 +21,7 @@ module.exports = [
     {
         ...common,
         entry: {
-            plugin: './src/plugin.js',
-            Finished: './src/Finished.jsx',
+            plugin: './src/plugin.js'
         },
         externals: externals(
             'public/v1/api',
